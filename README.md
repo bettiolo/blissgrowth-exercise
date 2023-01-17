@@ -19,6 +19,10 @@ Watch: https://youtu.be/0M8AYU_hPas
 $ npm install
 ```
 
+Tools used:
+- `.nvmrc` with `fnm` to use the same node version
+- `prettier` to have standardised code (auto)formatting
+
 ## Running the app
 
 ```bash
