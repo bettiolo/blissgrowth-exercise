@@ -11,24 +11,21 @@
 
 This project is built using [Nest](https://github.com/nestjs/nest) framework.
 
-Watch: https://youtu.be/0M8AYU_hPas
+Watch intro: https://youtu.be/0M8AYU_hPas
 
 ## Installation
+
+Tools used:
+- `.nvmrc` with `fnm` for consistent nodejs versioning
+- `prettier` for standardised code (auto)formatting
 
 ```bash
 $ npm install
 ```
 
-Tools used:
-- `.nvmrc` with `fnm` to use the same node version
-- `prettier` to have standardised code (auto)formatting
-
 ## Running the app
 
 ```bash
-# development
-$ npm run start
-
 # watch mode
 $ npm run start:dev
 
@@ -36,7 +33,7 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-To access the app start [localhost:3000](http://localhost:3000)
+To access the app visit [localhost:3000](http://localhost:3000) on your browser
 
 ## Test
 
