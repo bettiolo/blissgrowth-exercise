@@ -15,7 +15,11 @@
 
 This project is built using [Nest](https://github.com/nestjs/nest) framework.
 
-Watch intro: https://youtu.be/0M8AYU_hPas
+Learn about NestJS:
+
+- https://youtu.be/0M8AYU_hPas
+- https://youtu.be/4ZW9LQvUs9k
+- https://youtu.be/C250DCwS81Q
 
 ## Installation
 
