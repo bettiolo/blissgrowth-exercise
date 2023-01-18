@@ -7,7 +7,13 @@ import type {
 } from "@xata.io/client";
 
 const tables = [
-  { name: "connections", columns: [{ name: "token", type: "string" }] },
+  {
+    name: "connections",
+    columns: [
+      { name: "token", type: "string" },
+      { name: "type", type: "string" },
+    ],
+  },
 ] as const;
 
 export type SchemaTables = typeof tables;
