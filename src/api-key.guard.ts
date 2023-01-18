@@ -4,11 +4,14 @@ import { Injectable, CanActivate, ExecutionContext, UnauthorizedException } from
 import { apiKeys } from './api-keys.json'
 
 // Guards Docs: https://docs.nestjs.com/guards
+
+export const apiKeyHeader = 'x-api-key'
+
 @Injectable()
 export class ApiKeyGuard implements CanActivate {
   canActivate(context: ExecutionContext): true | never {
     const request = context.switchToHttp().getRequest<Request>()
-    const apiKeyHeader = 'x-api-key'
+
     const apiKey = request.headers[apiKeyHeader]
     const validApiKey = apiKeys.includes(apiKey)
 
