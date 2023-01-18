@@ -1,10 +1,11 @@
-import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { Module } from '@nestjs/common'
+import { ConnectionsController } from './connections/connections.controller'
+import { ConnectionsService } from './connections/connections.service'
+import { XataService } from '../libs/xata.service'
 
 @Module({
   imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [ConnectionsController],
+  providers: [ConnectionsService, XataService],
 })
 export class AppModule {}

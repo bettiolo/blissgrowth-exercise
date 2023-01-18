@@ -8,11 +8,12 @@ import { apiKeys } from './api-keys.json'
 export class ApiKeyGuard implements CanActivate {
   canActivate(context: ExecutionContext): true | never {
     const request = context.switchToHttp().getRequest<Request>()
-    const apiKey = request.headers['X-API-KEY']
+    const apiKeyHeader = 'x-api-key'
+    const apiKey = request.headers[apiKeyHeader]
     const validApiKey = apiKeys.includes(apiKey)
 
     if (!validApiKey) {
-      throw new UnauthorizedException() // Will result in a 401
+      throw new UnauthorizedException(`Header invalid: ${apiKeyHeader}`)
     }
 
     return true

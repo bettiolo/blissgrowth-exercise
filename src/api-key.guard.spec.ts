@@ -25,7 +25,7 @@ describe('ApiKeyGuard', () => {
     it('should throw an Unauthorized (HTTP 401) error with an invalid API Key', () => {
       const mockContext = createMock<ExecutionContext>()
       mockContext.switchToHttp().getRequest.mockReturnValue({
-        headers: { 'X-API-KEY': 'invalid-api-key' },
+        headers: { 'x-api-key': 'invalid-api-key' },
       })
 
       const callCanActivate = () => apiKeyGuard.canActivate(mockContext)
@@ -36,7 +36,7 @@ describe('ApiKeyGuard', () => {
     it('should return true with a valid api key', () => {
       const mockContext = createMock<ExecutionContext>()
       mockContext.switchToHttp().getRequest.mockReturnValue({
-        headers: { 'X-API-KEY': 'valid-api-key-1' },
+        headers: { 'x-api-key': 'valid-api-key-1' },
       })
 
       const canActivate = apiKeyGuard.canActivate(mockContext)

@@ -11,11 +11,12 @@ export class ConnectionsService {
     this.xataService = xataService
   }
 
-  async create(createConnectionDto: CreateConnectionDto): Promise<ConnectionsRecord> {
+  async create(createConnectionDto: CreateConnectionDto): Promise<{ id: string }> {
     if (!createConnectionDto.token) {
       throw new Error('Token missing')
     }
 
-    return await this.xataService.createConnection(createConnectionDto)
+    const connection = await this.xataService.createConnection(createConnectionDto)
+    return { id: connection.id }
   }
 }
