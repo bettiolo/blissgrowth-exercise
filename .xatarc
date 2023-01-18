@@ -1,0 +1,6 @@
+{
+  "databaseURL": "https://Marco-Bettiolo-s-workspace-q8h5ud.eu-west-1.xata.sh/db/blissgrowth-exercise",
+  "codegen": {
+    "output": "libs/xata.ts"
+  }
+}
