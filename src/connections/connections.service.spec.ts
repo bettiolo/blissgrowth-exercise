@@ -1,28 +1,21 @@
 import { Test } from '@nestjs/testing'
 import { ConnectionsService } from './connections.service'
-import { createMock } from '@golevelup/ts-jest'
+// import { createMock } from '@golevelup/ts-jest'
 import { XataService } from '../../libs/xata.service'
-import { ConnectionsRecord } from '../../libs/xata'
 
 describe('ConnectionsService', () => {
   let service: ConnectionsService
 
   beforeEach(async () => {
-    const mockXataService = createMock<XataService>()
-    const mockRecord = createMock<ConnectionsRecord>({
-      id: '123',
-    })
-
-    mockXataService.createConnection.mockResolvedValue(mockRecord)
+    // const mockXataService = createMock<XataService>()
+    // const mockRecord = createMock<ConnectionsRecord>({
+    //   id: 'rec_123',
+    // })
+    // mockXataService.createConnection.mockResolvedValue(mockRecord)
 
     const module = await Test.createTestingModule({
-      providers: [
-        ConnectionsService,
-        {
-          provide: XataService,
-          useValue: mockXataService,
-        },
-      ],
+      // To use the above mock, replace `XataService` with `mockXataService`
+      providers: [ConnectionsService, XataService],
     }).compile()
 
     service = module.get<ConnectionsService>(ConnectionsService)
@@ -49,8 +42,8 @@ describe('ConnectionsService', () => {
   it('should create a connection', async () => {
     const connectionsRecord = await service.create({
       type: 'github',
-      token: 'abc',
+      token: 'abc123',
     })
-    expect(connectionsRecord.id).toBe('123')
+    expect(connectionsRecord.id).toMatch(/^rec_/)
   })
 })
