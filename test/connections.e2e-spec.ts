@@ -1,14 +1,17 @@
 import { Test, TestingModule } from '@nestjs/testing'
 import { INestApplication } from '@nestjs/common'
 import * as request from 'supertest'
-import { ConnectionsModule } from '../src/connections/connections.module'
+import { ConnectionsController } from '../src/connections/connections.controller'
+import { ConnectionsService } from '../src/connections/connections.service'
+import { XataService } from '../libs/xata.service'
 
 describe('/connections (POST)', () => {
   let app: INestApplication
 
   beforeEach(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
-      imports: [ConnectionsModule],
+      controllers: [ConnectionsController],
+      providers: [ConnectionsService, XataService],
     }).compile()
 
     app = moduleFixture.createNestApplication()
