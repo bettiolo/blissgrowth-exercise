@@ -32,13 +32,13 @@ describe('ConnectionsService', () => {
   it('should create a connection and return only id', async () => {
     const mockConnectionsRecord = createMock<ConnectionsRecord>({
       id: 'ref_abc123',
-      type: 'mock-type',
+      provider: 'mock-provider',
       token: 'token-abc123',
     })
     jest.spyOn(xata, 'createConnection').mockImplementation(async () => mockConnectionsRecord)
 
     const connectionsRecord = await service.create({
-      type: 'github',
+      provider: 'github',
       token: 'abc123',
     })
 

@@ -29,7 +29,7 @@ describe('ConnectionsController', () => {
     })
     jest.spyOn(service, 'create').mockImplementation(async () => mockConnectionsRecord)
 
-    const connectionsRecord = await controller.create({ type: 'github', token: 'abc123' })
+    const connectionsRecord = await controller.create({ provider: 'github', token: 'abc123' })
 
     expect(connectionsRecord.id).toBe('ref_abc123')
   })

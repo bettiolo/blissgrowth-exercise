@@ -10,8 +10,8 @@ const tables = [
   {
     name: "connections",
     columns: [
-      { name: "token", type: "string" },
-      { name: "type", type: "string" },
+      { name: "provider", type: "string", notNull: true, defaultValue: "" },
+      { name: "token", type: "string", notNull: true, defaultValue: "" },
     ],
   },
 ] as const;

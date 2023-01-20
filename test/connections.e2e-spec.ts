@@ -25,7 +25,7 @@ describe('/connections (POST)', () => {
       .expect({ statusCode: 401, message: 'Header invalid: x-api-key', error: 'Unauthorized' })
   })
 
-  it('400 Bad Request when type not specified', () => {
+  it('400 Bad Request when provider not specified', () => {
     return request(app.getHttpServer()) //
       .post('/connections')
       .set('x-api-key', 'valid-api-key-1')
@@ -33,20 +33,20 @@ describe('/connections (POST)', () => {
       .expect(400)
       .expect({
         statusCode: 400,
-        message: ['type must be one of the following values: github', 'type should not be empty'],
+        message: ['provider must be one of the following values: github', 'provider should not be empty'],
         error: 'Bad Request',
       })
   })
 
-  it('400 Bad Request when type invalid', () => {
+  it('400 Bad Request when provider invalid', () => {
     return request(app.getHttpServer()) //
       .post('/connections')
       .set('x-api-key', 'valid-api-key-1')
-      .send({ type: 'bad-type', token: '123' })
+      .send({ provider: 'bad-provider', token: '123' })
       .expect(400)
       .expect({
         statusCode: 400,
-        message: ['type must be one of the following values: github'],
+        message: ['provider must be one of the following values: github'],
         error: 'Bad Request',
       })
   })
@@ -55,7 +55,7 @@ describe('/connections (POST)', () => {
     return request(app.getHttpServer())
       .post('/connections')
       .set('x-api-key', 'valid-api-key-1')
-      .send({ type: 'github' })
+      .send({ provider: 'github' })
       .expect(400)
       .expect({ statusCode: 400, message: ['token should not be empty'], error: 'Bad Request' })
   })
@@ -64,7 +64,7 @@ describe('/connections (POST)', () => {
     return request(app.getHttpServer())
       .post('/connections')
       .set('x-api-key', 'valid-api-key-1')
-      .send({ type: 'github', token: '123' })
+      .send({ provider: 'github', token: '123' })
       .expect(201)
       .expect((res) => {
         expect(res.body.id).toMatch(/^rec_/)

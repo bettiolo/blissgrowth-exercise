@@ -18,10 +18,10 @@ export class ConnectionsController {
 
   @Post()
   @UseGuards(ApiKeyGuard)
-  @UsePipes(new ValidationPipe({ forbidUnknownValues: true }))
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidUnknownValues: true }))
   async create(@Body() createConnectionDto: CreateConnectionDto) {
-    if (!createConnectionDto.type) {
-      throw new BadRequestException('Field invalid: type')
+    if (!createConnectionDto.provider) {
+      throw new BadRequestException('Field invalid: provider')
     }
     try {
       return await this.connectionsService.create(createConnectionDto)

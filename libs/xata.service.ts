@@ -7,4 +7,8 @@ export class XataService {
   async createConnection(createConnectionDto: CreateConnectionDto): Promise<ConnectionsRecord> {
     return await getXataClient().db.connections.create(createConnectionDto)
   }
+
+  async getConnection(id: string): Promise<ConnectionsRecord> {
+    return await getXataClient().db.connections.read(id)
+  }
 }
