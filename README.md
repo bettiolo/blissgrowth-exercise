@@ -24,6 +24,7 @@
 - TODO: Internal UI to test the endpoints
 - TODO: [Use Conventional Commits syntax](https://www.conventionalcommits.org/en/v1.0.0/)
 - TODO: Connections' token data should be encrypted at rest. Currently, data is stored as plaintext and is not secure.
+- TODO: Document API endpoints using [OpenAPI](https://swagger.io/specification/)
 
 ## Architecture
 ![Architecture](docs/architecture.png)
