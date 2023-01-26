@@ -25,7 +25,7 @@
 - TODO: Connections' token data should be encrypted at rest. Currently, data is stored as plaintext and is not secure.
 
 ## Architecture
-![Architecture](docs/architecture.svg)
+![Architecture](docs/architecture.png)
 [Source](docs/architecture.txt)
 
 ## Setup

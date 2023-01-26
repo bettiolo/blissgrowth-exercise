@@ -8,22 +8,45 @@ fontawesome f013 Controller
 fontawesome f1c0 Xata
 fontawesome f09b GitHub
 
-note right of User: User must have called\n~/connections first to\nget a `connectionId`
+note right of User: User must have called\n~/connections first to\nget a ""connectionId""
 User->NestJS: GET ~/call/:connId/:method/:provider/:path
+activate NestJS
 note over User,NestJS: example: GET ~/call/rec_123/GET/github/user
-NestJS->API Key Guard: Checks `x-api-key` header
-rbox over API Key Guard: Validates api key\n(`api-keys.json`)
-NestJS<--API Key Guard: `true` if valid
-NestJS->Validation Pipe: Validate `CallRequestDto`
-rbox over Validation Pipe: Validates using\n`class-validator` package
+
+NestJS->*API Key Guard: Checks ""x-api-key"" header
+activate API Key Guard
+rbox over API Key Guard: Validates api key\n(""api-keys.json"")
+NestJS<--API Key Guard: ""true"" if valid
+deactivate API Key Guard
+destroysilent API Key Guard
+
+NestJS->*Validation Pipe: Validate ""CallRequestDto""
+activate Validation Pipe
+rbox over Validation Pipe: Validates using\n""class-validator"" package
 Validation Pipe-xValidation Pipe: Throws an exception if validation failed
 NestJS<--Validation Pipe: Validation successful
-NestJS->Controller: Execute controller\n(`callProvider`)
-Controller->Xata: Execute SQL on DB\n(`where id=:connId`)
-Controller<--Xata: Return user's `token`
-rbox over Controller: Prepares request data\nas per `CallRequestDto`\n+ DB `token`
-Controller->GitHub: Call :method :path endpoint\n(`GET ~/user` + Auth)
+deactivate Validation Pipe
+destroysilent Validation Pipe
+
+NestJS->*Controller: Execute controller\n""callProvider()""
+activate Controller
+
+Controller->Xata: Execute SQL on DB\n""where id=:connId""
+activate Xata
+Controller<--Xata: Return user's ""token""
+deactivate Xata
+
+rbox over Controller: Prepares request data\nas per ""CallRequestDto""\n+ DB ""token""
+Controller->GitHub: Call :method :path endpoint\n""GET ~/user"" + Auth
+activate GitHub
 Controller<--GitHub: Returns provider data
-rbox over Controller: Parsers provider data:\n{\n  providerStatusCode: 200,\n  providerData: {...}\n}
+deactivate GitHub
+
+rbox over Controller: Parsers provider data:\n""{\n  providerStatusCode: 200,\n  providerData: {...}\n}""
 User<--Controller: Returns provider data
-note right of User: User happy ❤️
+deactivate Controller
+destroysilent Controller
+
+deactivate NestJS
+
+note right of User: ++User happy ❤️++
