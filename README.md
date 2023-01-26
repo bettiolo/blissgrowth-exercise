@@ -53,8 +53,6 @@ Tools used:
 - `insomnia` to manually test the API endpoints
 
 ```bash
- 
-```bash
 $ npm install
 ```
 
