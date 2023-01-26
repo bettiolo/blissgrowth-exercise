@@ -19,6 +19,7 @@
 
 - [Follow TDD practices](https://womanonrails.com/tdd-30devstories)
 - [Follow TypeScript best practices](https://climbtheladder.com/10-typescript-best-practices/) 
+- [Keep up-to-date the Kanban board](https://github.com/users/bettiolo/projects/1)
 - TODO: Git commit hooks (ie `husky`), let's make sure we push good code
 - TODO: Internal UI to test the endpoints
 - TODO: [Use Conventional Commits syntax](https://www.conventionalcommits.org/en/v1.0.0/)
@@ -42,9 +43,15 @@ Learn about NestJS:
 
 Tools used:
 - `.nvmrc` with `fnm` for consistent nodejs versioning
+- `editorconfig` for consistent editor settings
 - `prettier` for standardised code (auto)formatting
 - `eslint` to find code issues
-- `insomnia` to test the API endpoints
+- `nesjs` for the API framework
+- `jest` for testing
+- `xata` for the database + typed db client
+- `insomnia` to manually test the API endpoints
+
+```bash
  
 ```bash
 $ npm install
