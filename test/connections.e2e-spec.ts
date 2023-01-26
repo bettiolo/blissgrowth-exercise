@@ -16,7 +16,7 @@ describe('/connections (POST)', () => {
 
     app = moduleFixture.createNestApplication()
     await app.init()
-  }) //   ^?
+  })
 
   it('401 Unauthorized with invalid API key', () => {
     return request(app.getHttpServer()) //
@@ -25,7 +25,7 @@ describe('/connections (POST)', () => {
       .expect({ statusCode: 401, message: 'Header invalid: x-api-key', error: 'Unauthorized' })
   })
 
-  it('400 Bad Request when provider not specified', () => {
+  it('400 Bad Request when `provider` not specified', () => {
     return request(app.getHttpServer()) //
       .post('/connections')
       .set('x-api-key', 'valid-api-key-1')
@@ -38,7 +38,7 @@ describe('/connections (POST)', () => {
       })
   })
 
-  it('400 Bad Request when provider invalid', () => {
+  it('400 Bad Request when `provider` invalid', () => {
     return request(app.getHttpServer()) //
       .post('/connections')
       .set('x-api-key', 'valid-api-key-1')
@@ -51,7 +51,7 @@ describe('/connections (POST)', () => {
       })
   })
 
-  it('400 Bad Request when token not specified', () => {
+  it('400 Bad Request when `token` not specified', () => {
     return request(app.getHttpServer())
       .post('/connections')
       .set('x-api-key', 'valid-api-key-1')
