@@ -1,8 +1,8 @@
-import { Controller, Get, Param, Query, UseGuards, UsePipes, ValidationPipe } from '@nestjs/common'
-import { CallResponseDto } from '../../libs/call-response.dto'
+import { Controller, Get, Param, UseGuards, UsePipes, ValidationPipe } from '@nestjs/common'
+import { CallResponseDto } from './call-response.dto'
 import { XataService } from '../../libs/xata.service'
 import { HttpService } from '@nestjs/axios'
-import { CallRequestDto } from '../../libs/call-request.dto'
+import { CallRequestDto } from './call-request.dto'
 import { ApiKeyGuard } from '../api-key.guard'
 
 @Controller('call')
@@ -31,6 +31,7 @@ export class CallController {
     const baseUrl = this.baseUrls[provider]
     const url = `${baseUrl}/${path}`
     const config = this.configs[provider](connection)
+    // TODO: Handle `method`
     const response = await this.httpService.get(url, config).toPromise()
 
     return {

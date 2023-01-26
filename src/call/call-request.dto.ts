@@ -1,4 +1,4 @@
-import { IsNotEmpty, Matches, IsIn, IsString, isNotEmpty, IsUrl } from 'class-validator'
+import { IsNotEmpty, Matches, IsIn } from 'class-validator'
 
 export class CallRequestDto {
   @IsNotEmpty()

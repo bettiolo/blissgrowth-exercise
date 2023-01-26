@@ -85,7 +85,6 @@ describe('/call (GET)', () => {
   })
 
   it('200 OK for github ~/user', () => {
-    // TODO: Create valid connection id by passing github token via env var
     const validConnectionId = process.env.TEST_VALID_CONNECTION_ID_GITHUB
     if (!validConnectionId) throw new Error('TEST_VALID_CONNECTION_ID env variable not set')
 
@@ -109,7 +108,6 @@ describe('/call (GET)', () => {
   })
 
   it('200 OK for github ~/user/followers', () => {
-    // TODO: Create valid connection id by passing github token via env var
     const validConnectionId = process.env.TEST_VALID_CONNECTION_ID_GITHUB
     if (!validConnectionId) throw new Error('TEST_VALID_CONNECTION_ID env variable not set')
 
