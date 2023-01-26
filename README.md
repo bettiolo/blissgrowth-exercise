@@ -11,6 +11,8 @@
 
 > FictionalAPI wants to build an API connection repository/manager. A service that allows developers to submit credentials for an integration, and then use the service to call the underlying integration. The vision is that the service would handle credentials life-cycle management, data transformations, end-user integration management and so on. Owning all parts of the API/Integrations management.
 
+![~/call example](docs/example-call.png)
+
 ## Setup
 
 This project is built using [Nest](https://github.com/nestjs/nest) framework.
