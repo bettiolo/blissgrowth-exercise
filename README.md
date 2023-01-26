@@ -15,6 +15,15 @@
 ![Unit Tests](docs/tests--unit.png)
 ![E2E Tests](docs/tests--e2e.png)
 
+## Best Practices
+
+- [Follow TDD practices](https://womanonrails.com/tdd-30devstories)
+- [Follow TypeScript best practices](https://climbtheladder.com/10-typescript-best-practices/) 
+- TODO: Git commit hooks (ie `husky`), let's make sure we push good code
+- TODO: Internal UI to test the endpoints
+- TODO: [Use Conventional Commits syntax](https://www.conventionalcommits.org/en/v1.0.0/)
+- TODO: Connections' token data should be encrypted at rest. Currently, data is stored as plaintext and is not secure.
+
 ## Setup
 
 This project is built using [Nest](https://github.com/nestjs/nest) framework.
